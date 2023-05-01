@@ -1,0 +1,26 @@
+{% load static %}
+<div class="side-bar">
+
+    <div id="close-btn">
+       <i class="fas fa-times"></i>
+    </div>
+ 
+    <div class="profile">
+      {% if user.profile_pic %}
+      <img src="\media\{{user.profile_pic}}" class="image" alt="">
+      {% else %}
+      <img src="{% static 'demo_profile.jpg' %}" class="image" alt="">
+      {% endif %}
+       <h3 class="name">{{user.first_name}} {{user.last_name}}</h3>
+       <p class="role">student</p>
+       <a href="{% url 'student:student_profile' %}" class="btn">view profile</a>
+       <a href="{% url 'index' %}" class="btn">Back Home</a>
+    </div>
+ 
+    <nav class="navbar">
+       <a href="{% url 'student:student_dashbord' %}"><i class="fas fa-home"></i><span>Dashbord</span></a>
+       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>My Course</span></a>
+       <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>My Books</span></a>
+    </nav>
+ 
+ </div>
